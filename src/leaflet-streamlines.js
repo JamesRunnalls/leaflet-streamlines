@@ -23,8 +23,8 @@ L.Streamlines = (L.Layer ? L.Layer : L.Class).extend({
       !this.options.xMin ||
       !this.options.yMax ||
       !this.options.yMin
-    ){
-      throw new Error('xMax, xMin, yMax and yMin are required.');
+    ) {
+      throw new Error("xMax, xMin, yMax and yMin are required.");
     }
     this._data = data;
     this._nCols = this._data.u[0].length;
@@ -292,8 +292,12 @@ L.Streamlines = (L.Layer ? L.Layer : L.Class).extend({
   },
 
   _onMousemove: function (t) {
-    var e = this._queryValue(t);
-    this.fire("mousemove", e);
+    try {
+      var e = this._queryValue(t);
+      this.fire("mousemove", e);
+    } catch (e) {
+      console.error("Leaflet streamlines mousemove event failed.");
+    }
   },
 
   getLatLng: function () {
@@ -301,8 +305,12 @@ L.Streamlines = (L.Layer ? L.Layer : L.Class).extend({
   },
 
   _onClick: function (t) {
-    var e = this._queryValue(t);
-    this.fire("click", e);
+    try {
+      var e = this._queryValue(t);
+      this.fire("click", e);
+    } catch (e) {
+      console.error("Leaflet streamlines click event failed.");
+    }
   },
 
   _queryValue: function (click) {

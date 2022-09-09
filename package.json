@@ -1,6 +1,6 @@
 {
   "name": "leaflet-streamlines",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Visualise two dimensional vector fields in leaflet using stream lines.",
   "main": "src/leaflet-streamlines.js",
   "unpkg": "dist/leaflet-streamlines.min.js",
